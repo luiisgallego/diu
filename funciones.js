@@ -9,10 +9,10 @@ function valorar() {
     console.log(selectedelement);
 
     if(""==code){
-        alert("code de reserva no valido");
+        alert("código de reserva no valido");
         return;
     }else if (""==text || "Enter text here..."==text) {
-        alert("valoracion no es valida");
+        alert("valoración no es valida");
         return;
     }
 
@@ -74,6 +74,45 @@ function valorar() {
     }
     div7.append(div8);
     div7.append(div9);
+}
+
+/**
+ * Check if the e-mail is valid
+ * @param {String} email
+ * @returns {boolean} if the e-mail is valid
+ */
+function validate_email(email) {
+    if (typeof(email) === 'string') {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email.match(mailformat)) {
+            return true;
+        }
+    } else {
+        return false;
+    }
+}
+
+function contact() {
+    console.log("contact");
+    var email=document.getElementById("inputEmail").value;
+    console.log(email);
+    var name=document.getElementById("inputNombre").value;
+    console.log(name);
+
+    var comment=document.getElementById("comment").value;
+    console.log(comment);
+
+    if(""==email || !validate_email(email)){
+        alert("email no valido");
+        return;
+    }else if (""==name) {
+        alert("nombre no es valida");
+        return;
+    }else if (""==comment) {
+        alert("mensaje no es valida");
+        return;
+    }
+    alert("Mensaje creado correctamente por "+name+" con email "+email);
 }
 
 
