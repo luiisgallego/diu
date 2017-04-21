@@ -13,7 +13,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href="style.less" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="img/logo_zenit.ico" type="image/x-icon">
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="./funciones.js"></script>
   </head><body>
     <div class="section nav_header">
       <div class="container">
@@ -89,21 +90,108 @@
       </div>
     </div>
 
+    <div id="list_opinions">
 
-    <div class="opinion_list_element">
+        <div class="opinion_total_element">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="fa fa-3x fa-fw fa-thumbs-o-up"></i>
+                      </div>
+                      <div class="opinion_element col-md-11">
+                        <p>la habitacion muy limpia. Ademas de un servicio muy simpatico&nbsp;
+                          <br>Gracias por todo
+                          <br>Repitire.&nbsp;</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="opinion_total_element">
+          <div class="container">
+            <div class="row">
+              <div class="opinion_element col-md-11">
+                <p>La habitación era muy pequeña, no como en las fotos. No os lo aconsejo.&nbsp;
+                  <br>Espero que mejoren la web.&nbsp;
+                  <br>El mejor de el de Granada&nbsp;</p>
+              </div>
+              <div class="col-md-1">
+                <i class="fa fa-3x fa-fw fa-thumbs-o-down"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="opinion_total_element">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-1">
+                        <i class="fa fa-3x fa-fw fa-thumbs-o-up"></i>
+                      </div>
+                      <div class="opinion_element col-md-11">
+                        <p>la habitacion muy limpia. Ademas de un servicio muy simpatico&nbsp;
+                          <br>Gracias por todo
+                          <br>Repitire.&nbsp;</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+
+    <div class="section form_opinion ">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="section">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-1">
-                    <i class="fa fa-3x fa-fw fa-thumbs-o-up"></i>
-                  </div>
-                  <div class="opinion_element col-md-11">
-                    <p>la habitacion muy limpia. Ademas de un servicio muy simpatico&nbsp;
-                      <br>Gracias por todo
-                      <br>Repitire.&nbsp;</p>
+            <div class="section ">
+              <div class="container reservas">
+                    <form role="form">
+                        <div class="col-md-12">
+                            <div class="col-md-6 form_opinion_element">
+                                <textarea id="textarea_opinion" rows="4" cols="50" name="comment" id="">Enter text here...</textarea>
+                            </div>
+                            <div class="col-md-5">
+                                <div class=" col-md-5 form_opinion_element">
+                                  <p>Codigo reserva:</p>
+                                </div>
+                                <div class=" col-md-5 form_opinion_element">
+                                  <input id="code_opinion" type="text" class="form-control">
+                                </div>
+
+                                <div class=" col-md-5 form_opinion_element">
+                                  <p>Valoracion:</p>
+                                </div>
+                                <div class="col-md-5 form_opinion_element ">
+                                  <select id="select_opinion" class="form-control">
+                                    <option id="thumbs_up_opinion" value="fa fa-thumbs-o-up">&#xf087; Bien</option>
+                                    <option id="thumbs_down_opinion" value="fa fa-thumbs-o-down">&#xf088; Mal</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-3 form_opinion_element">
+                                  <span class="input-group-btn">
+                                    <a class="btn btn-success" type="submit" onclick="valorar()">Valorar</a>
+                                  </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -112,21 +200,6 @@
         </div>
       </div>
     </div>
-    <div class="opinion_list_element">
-      <div class="container">
-        <div class="row">
-          <div class="opinion_element col-md-11">
-            <p>La habitación era muy pequeña, no como en las fotos. No os lo aconsejo.&nbsp;
-              <br>Espero que mejoren la web.&nbsp;
-              <br>El mejor de el de Granada&nbsp;</p>
-          </div>
-          <div class="col-md-1">
-            <i class="fa fa-3x fa-fw fa-thumbs-o-down"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <div class="section footer_page">
       <div class="container">
