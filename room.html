@@ -46,46 +46,41 @@
         </div>
       </div>
     </div>
-    <div class="section ">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section ">
-              <div class="container reservas">
-                <div class="row">
-                  <div class="col-md-offset-2 col-md-8">
-                    <form role="form">
-                      <div class="form-group">
-                        <div class="input-group row">
-                          <div class="col-md-3">
-                            <input type="date" class="form-control" placeholder="Fecha inicio">
-                          </div>
-                          <div class="col-md-3">
-                            <input type="date" class="form-control" placeholder="Fecha fin">
-                          </div>
-                          <div class="col-md-3">
-                            <select class="form-control">
-                              <option value="Indiviual">Indiviual</option>
-                              <option value="Doble(matrimonio)">Doble(matrimonio)</option>
-                              <option value="Doble">Doble</option>
-                              <option value="Doble(terraza)">Doble(terraza)</option>
-                            </select>
-                          </div>
-                          <div class="col-md-3">
-                            <span class="input-group-btn">
-                              <a class="btn btn-success" type="submit">Reservar</a>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+    <div class="">
+        <div class="container">
+            <div class="col-md-12 reservas">
+
+                <div class="col-md-1">
+                    <h4>Inicio</h4>
                 </div>
-              </div>
+                <div class="col-md-2">
+                    <input id="fecha_ini_reserva" type="date" class="form-control" placeholder="Fecha inicio">
+                </div>
+                <div class="col-md-1">
+                    <h4>Fin</h4>
+                </div>
+                <div class="col-md-2">
+                    <input id="fecha_fin_reserva" type="date" class="form-control" placeholder="Fecha fin">
+                </div>
+                <div class="col-md-1">
+                    <h4>Habitacion</h4>
+                </div>
+                <div class="col-md-2 reservas_boton_habitaciones">
+                    <select id="opcion_reserva" type="checkbox" class="form-control">
+                      <option value="Individual">Individual</option>
+                      <option value="Doble(matrimonio)">Doble(matrimonio)</option>
+                      <option value="Doble">Doble</option>
+                      <option value="Doble(terraza)">Doble(terraza)</option>
+                    </select>
+                </div>
+                <div class="col-md-1 reservas_boton">
+                    <span class="input-group-btn">
+                        <a class="btn btn-success" type="button" onclick="funcReserva()">Reservar</a>
+                    </span>
+                </div>
+
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <div class="section">
