@@ -1,3 +1,6 @@
+/**
+ *Valorar el hotel
+ */
 function valorar() {
     console.log("valorar");
     var text=document.getElementById("textarea_opinion").value;
@@ -9,14 +12,12 @@ function valorar() {
     console.log(selectedelement);
 
     if(""==code){
-        alert("código de reserva no valido");
+        showErrorMessagesPage("código de reserva no valido", false);
         return;
     }else if (""==text || "Enter text here..."==text) {
-        alert("valoración no es valida");
+        showErrorMessagesPage("valoración no es valida", false);
         return;
     }
-
-
 
     var father=document.getElementById("list_opinions");
 
@@ -92,6 +93,9 @@ function validate_email(email) {
     }
 }
 
+/**
+ *Enviar un mensaje de contacto
+ */
 function contact() {
     console.log("contact");
     var email=document.getElementById("inputEmail").value;
@@ -103,43 +107,47 @@ function contact() {
     console.log(comment);
 
     if(""==email || !validate_email(email)){
-        alert("email no valido");
+        showErrorMessagesPage("email no valido", false);
         return;
     }else if (""==name) {
-        alert("nombre no es valida");
+        showErrorMessagesPage("nombre no es valida", false);
         return;
     }else if (""==comment) {
-        alert("mensaje no es valida");
+        showErrorMessagesPage("mensaje no es valida", false);
         return;
     }
-    alert("Mensaje creado correctamente por "+name+" con email "+email);
+    showErrorMessagesPage("Mensaje creado correctamente por "+name+" con email "+email, true);
 }
 
-
+/**
+ * Realiza una reserva
+ */
 function funcReserva(){
-
 	var fecha_ini = document.getElementById("fecha_ini_reserva").value;
 	var fecha_fin = document.getElementById("fecha_fin_reserva").value;
 	var habitaciones = document.getElementById("opcion_reserva").value;
 
 	if(isValidDate(fecha_ini) == true){
 		if(isValidDate(fecha_fin) == true && fecha_ini < fecha_fin){
-			alert("Ha elegido la opcion de " + habitaciones +
+			showErrorMessagesPage("Ha elegido la opcion de " + habitaciones +
 				" para la fecha de inicio: " + fecha_ini +
 				" y fecha fin: " + fecha_fin
-				);
+				,false);
 		}else {
-			alert("Fecha fin incorrecta.");
+			showErrorMessagesPage("Fecha fin incorrecta.",false);
 		}
 
 	} else {
-		alert("Fecha inicio incorrecta.");
+		showErrorMessagesPage("Fecha inicio incorrecta.",false);
 	}
 
 }
 
-function funcLiving(){
 
+/**
+ *Reserva una un salon
+ */
+function funcLiving(){
 	var fecha = document.getElementById("fecha").value;
 	var dias = document.getElementById("dias").value;
 	var asistentes = document.getElementById("asistentes").value;
@@ -149,29 +157,30 @@ function funcLiving(){
 		if(isValidDate(fecha) == true){
 			if(asistentes>0 && asistentes<20) {
 				if(dias != ""){
-					alert("Para la fecha: " + fecha +
+					showErrorMessagesPage("Para la fecha: " + fecha +
 						" y durante " + dias + " dias "+
 						" ha reservado el salon para " +
-						asistentes + " asistentes."
+						asistentes + " asistentes.", true
 					);
 				} else {
-					alert("Hay que elegir el numero de dias.")
+					showErrorMessagesPage("Hay que elegir el numero de dias.",false)
 				}
 
 			} else {
-				alert("Hay que elegir el numero de asistentes.");
+				showErrorMessagesPage("Hay que elegir el numero de asistentes.",false)
 			}
 		} else {
-			alert("Fecha introducida invalida.");
+			showErrorMessagesPage("Fecha introducida invalida.",false)
 		}
 	} else {
-		alert("Tiene que introducir su código de reserva.");
+		showErrorMessagesPage("Tiene que introducir su código de reserva.",false)
 	}
 }
 
-
+/**
+ *Reserva una actividad cultural
+ */
 function funcCultura(){
-
 	var opcion = document.getElementById("opcion").value;
 	var fecha = document.getElementById("fecha").value;
 	var visitantes = document.getElementById("visitantes").value;
@@ -180,22 +189,26 @@ function funcCultura(){
 	if(codigo != ""){
 		if(isValidDate(fecha) == true){
 			if(visitantes>0 && visitantes<100) {
-				alert("Ha elegido la opción de " + opcion +
+				showErrorMessagesPage("Ha elegido la opción de " + opcion +
 				" para la fecha: " + fecha +
-				" y " + visitantes + " visitantes."
+				" y " + visitantes + " visitantes.", true
 				);
 			} else {
-				alert("Hay que elegir el numero de visitantes.");
+				showErrorMessagesPage("Hay que elegir el numero de visitantes.",false)
 			}
 		} else {
-			alert("Fecha introducida invalida.");
+			showErrorMessagesPage("Fecha introducida invalida.",false)
 		}
 	} else {
-		alert("Tiene que introducir su código de reserva.");
+		showErrorMessagesPage("Tiene que introducir su código de reserva.",false)
 	}
 }
 
-// Validates that the input string is a valid date formatted as "mm/dd/yyyy"
+/**
+ * Validates that the input string is a valid date formatted as "mm/dd/yyyy"
+ * @param {string} dateString
+ * @returns {boolean} bool
+ */
 function isValidDate(dateString)
 {
     // Parse the date parts to integers
@@ -219,3 +232,50 @@ function isValidDate(dateString)
     // Check the range of the day
     return day > 0 && day <= monthLength[month - 1];
 };
+
+
+/**
+ * show the error in a div
+ * @param {string} the element of the error, such as: login, message, etc
+ * @param {message} message of error
+ * @returns {boolean} bool
+ */
+function showErrorMessagesPage(message, success) {
+    if (typeof(message) === 'string') {
+        element_error_message = document.getElementById("showErrorMessage")
+        element_error_message.style.display = "block";
+        if (success) {
+            element_error_message.className = "error_footer showErrorMessagesPage showErrorMessagesPage-success";
+            element_error_message.style.backgroundColor ="rgb(164, 229, 165)";
+        } else {
+            element_error_message.className = "error_footer showErrorMessagesPage showErrorMessagesPage-danger";
+            element_error_message.style.backgroundColor ="rgb(229, 164, 164)";
+        }
+        document.getElementById("errorMessage").innerHTML =  message;
+
+        fade(element_error_message, 300);
+        return true;
+    } else {
+        console.log("Incorrect input showErrorMessage.");
+        return false;
+    }
+}
+
+
+/**
+ * Disappear the element with a speed
+ * @param {element} html element
+ * @param {speed} speed to disappear
+ */
+function fade(element, speed) {
+    var op = 1,
+        timer = setInterval(function() {
+            if (op <= 0.1) {
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = op;
+            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+            op -= op * 0.1;
+        }, speed);
+}
