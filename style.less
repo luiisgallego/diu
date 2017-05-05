@@ -1,3 +1,7 @@
+
+/*///////////////////
+Menu
+//////////////////*/
 .nav_header {
   width: 100%;
   height: 15%;
@@ -27,6 +31,11 @@
     margin-left: 2%;
 }
 
+
+
+/*///////////////////
+FOOTER
+//////////////////*/
 .footer_page {
   position: fixed;
   bottom: 0;
@@ -41,7 +50,7 @@
     margin-top: 1%;
 }
 
-.footer_margen a{  
+.footer_margen a{
     color: #FCFBFB;
 }
 
@@ -50,6 +59,9 @@
   float: left;
 }
 
+.politica_margen{
+    margin-bottom: 2%;
+}
 
 /*/
 //////////////////////////////////////////////////////////////
@@ -174,18 +186,6 @@ CULTURA
     margin-top: 2%;
 }
 
-/*.lista_cultura2{
-    margin-left: 10%;
-}*/
-
-/*.lista_cultura3{
-    margin-top: 45%;
-}*/
-
-/*.lista_cultura4{
-     margin-top: 15%;
-}*/
-
 .formulario_cultura{
     margin-top: 2%;
     margin-bottom: 8%;
@@ -195,11 +195,59 @@ CULTURA
     margin-bottom: 2%;
 }
 
-/*///////////////////*/
-.politica_margen{
-    margin-bottom: 2%;
-}
+/*///////////////////
+Responsive design table
+//////////////////*/
 
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr { border: 1px solid #ccc; }
+
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Día"; }
+	td:nth-of-type(2):before { content: "Primero"; }
+	td:nth-of-type(3):before { content: "Segundo"; }
+	td:nth-of-type(4):before { content: "Postre"; }
+	td:nth-of-type(5):before { content: "Alergenos"; }
+
+}
 
 /* Add custom CSS classes here
  *
