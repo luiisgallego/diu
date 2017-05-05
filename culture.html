@@ -41,14 +41,33 @@
               <li class="active">
                 <a href="culture.html">Turismo y Culturara</a>
               </li>
-              <div class="col-md-2 reservas_boton_habitaciones">
-              <select id="opcion_reserva" type="checkbox" class="form-control">
-                <option value="Español">Español</option>
-                <option value="Inglés">Inglés</option>
-                <option value="Italiano">Italiano</option>
-                <option value="Francés">Francés</option>
-              </select>
-              </div
+              <div class="col-md-2 reservas_boton_habitaciones" id="google_translate_element"></div>
+              <script>
+                  function googleTranslateElementInit() {
+                      new google.translate.TranslateElement(
+                          {pageLanguage: 'en'},
+                          'google_translate_element'
+                      );
+
+                      /*
+                          To remove the "powered by google",
+                          uncomment one of the following code blocks.
+                          NB: This breaks Google's Attribution Requirements:
+                          https://developers.google.com/translate/v2/attribution#attribution-and-logos
+                      */
+
+                      // Native (but only works in browsers that support query selector)
+                      //if(typeof(document.querySelector) == 'function') {
+                      //    document.querySelector('.goog-logo-link').setAttribute('style', 'display: none');
+                      //    document.querySelector('.goog-te-gadget').setAttribute('style', 'font-size: 0');
+                      //}
+
+                      // If you have jQuery - works cross-browser - uncomment this
+                      //jQuery('.goog-logo-link').css('display', 'none');
+                      //jQuery('.goog-te-gadget').css('font-size', '0');
+                  }
+              </script>
+              <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
             </ul>
           </div>
         </div>
